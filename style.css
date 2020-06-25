@@ -14,9 +14,6 @@ body, html{
    border-color: rgb(61, 56, 56);
    user-select: none;
  }
- .options:hover{
-   background-color: rgb(92, 83, 83);
- }
  #twoButtons{
    text-align: center;
  }
