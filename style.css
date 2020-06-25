@@ -1,0 +1,26 @@
+body{
+    background-color: black;
+    color: white;
+  }
+ .options{
+   width: 60px;
+   height: 60px;
+ }
+ #twoButtons{
+   text-align: center;
+ }
+ button:hover, button:active{
+   background-color: grey;
+ }
+ a, a:visited{
+   color : green;
+ }
+ .menu{
+    text-align: center;
+ }
+ .title{
+     text-align: center;
+ }
+ /* button{
+    width: 2em;
+ } */

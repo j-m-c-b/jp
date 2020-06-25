@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hiragana</title>
+  <style media="screen">
+
+  </style>
+  <link rel="stylesheet" href="..\style.css">
+</head>
+
+<body>
+
+
+  <nav>
+    <div class="menu">
+      <span> <a href="hiragana.html">Hiragana</a> </span> |
+      <span> <a href="katakana.html">Katakana</a> </span> |
+      <span> <a href="kanji.html">Kanji</a> </span> |
+    </div>
+  </nav>
+
+
+
+  <div class="main">
+    <h2 class="title">Hiragana</h2>
+    <div id="twoButtons">
+
+      <button id="op1" class="options" type="button" name="button"></button>
+      <button id="op2" class="options" type="button" name="button"></button>
+
+      <h4>Word: <span id="engWord"></span></h4>
+
+      <span id="nice">😊</span> <span id="notNice">😢</span>
+    </div>
+
+
+
+  </div>
+  <br>
+  <a href="../index.html">Go back to the home menu</a>
+  <br>
+
+
+
+
+
+
+
+
+  <script src="hiragana.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    var op1 = document.querySelector("#op1");
+    var op2 = document.querySelector("#op2");
+    var keys = Object.keys(hiragana);
+    var values = Object.values(hiragana);
+    var op;
+    var engWord = document.querySelector("#engWord");
+    var answerReal;
+    function buttonsValues(v1, v2) {
+
+      op1.innerHTML = v1;
+      op2.innerHTML = v2;
+
+    }
+    function randomProperty(obj) {
+
+      randomC1 = Math.floor((Math.random() * (keys.length - 1)) + 0);
+      randomC2 = Math.floor((Math.random() * (keys.length - 1)) + 0);
+      op = Math.floor((Math.random() * 2) + 1);
+      console.log(keys.length + "  R1: " + randomC1 + "  R2: " + randomC2)
+      if (op == 1) { engWord.innerHTML = keys[randomC1]; }
+      else if (op == 2) { engWord.innerHTML = keys[randomC2]; }
+      buttonsValues(values[randomC1], values[randomC2]);
+
+    };
+
+    op1.addEventListener("click", function (e) {
+
+      answer(op1.innerHTML);
+      if (op == 1) {
+        console.log("you win!");
+        nice.setAttribute("style", "background-color: green;");
+        notNice.setAttribute("style", "background-color: inherit;");
+
+      }
+      else {
+        console.log("you lose");
+        notNice.setAttribute("style", "background-color: red;");
+        nice.setAttribute("style", "background-color: inherit;");
+      }
+      randomProperty(hiragana);
+    });
+    op2.addEventListener("click", function (e) {
+
+      answer(op2.innerHTML);
+      if (op == 2) {
+        console.log("you win!")
+        nice.setAttribute("style", "background-color: green;");
+        notNice.setAttribute("style", "background-color: inherit;");
+      }
+      else {
+        console.log("you lose");
+
+        notNice.setAttribute("style", "background-color: red;");
+        nice.setAttribute("style", "background-color: inherit;");
+
+      }
+      randomProperty(hiragana);
+    });
+    function answer(guest) {
+      console.log(guest);
+    }
+
+    randomProperty(hiragana);
+
+
+
+  </script>
+
+</body>
+
+</html>
