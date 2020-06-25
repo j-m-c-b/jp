@@ -87,8 +87,8 @@ kanjiList = [
     ,
     {
       "S": "ある",
-      "P": "is there",
-      "M": ""
+      "P": "",
+      "M": "is there"
     }
     ,
     {
