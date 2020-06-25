@@ -40,7 +40,7 @@
   </div>
 
   <br>
-  <a href="../index.html">Go back to the home menu</a>
+  <a href="../index.html">Menu</a>
   <br>
 
 
@@ -59,6 +59,11 @@
     var op;
     var engWord = document.querySelector("#engWord");
     var answerReal;
+
+    
+    var goodOnes = 0;
+    var badOnes = 0;
+
     function buttonsValues(v1, v2) {
 
       op1.innerHTML = v1;
@@ -82,39 +87,50 @@
 
     op1.addEventListener("click", function (e) {
 
-      answer(op1.innerHTML);
       if (op == 1) {
-        console.log("you win!");
-        nice.setAttribute("style", "background-color: green;");
-        notNice.setAttribute("style", "background-color: inherit;");
-
+        // good
+        
+        show(true);
       }
       else {
-        console.log("you lose");
-        notNice.setAttribute("style", "background-color: red;");
-        nice.setAttribute("style", "background-color: inherit;");
+        //no good
+        show(false);
       }
       randomProperty();
     });
+
     op2.addEventListener("click", function (e) {
 
-      answer(op2.innerHTML);
       if (op == 2) {
-        console.log("you win!")
-        nice.setAttribute("style", "background-color: green;");
-        notNice.setAttribute("style", "background-color: inherit;");
+        show(true);
       }
       else {
-        console.log("you lose");
-
-        notNice.setAttribute("style", "background-color: red;");
-        nice.setAttribute("style", "background-color: inherit;");
-
+        show(false);
       }
       randomProperty();
     });
-    function answer(guest) {
-      console.log(guest);
+
+    function show(win){
+      if(win){
+        nice.setAttribute("style", "background-color: green;");
+        notNice.setAttribute("style", "background-color: darkslategray;");
+
+           
+        goodOnes +=1;
+
+        nice.innerText= "😊 " + goodOnes;
+
+      }else{
+        notNice.setAttribute("style", "background-color: red;");
+        nice.setAttribute("style", "background-color: darkslategray;");
+
+        badOnes += 1;
+
+        notNice.innerText = "😢 " + badOnes;
+
+
+      }
+
     }
 
     randomProperty();

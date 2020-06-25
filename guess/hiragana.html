@@ -26,7 +26,7 @@
   <div class="main">
     <h2 class="title">Hiragana</h2>
     <div id="twoButtons">
-      
+
       <span id="op1" class="options"></span>
       <span id="op2" class="options"></span>
 
@@ -40,7 +40,7 @@
 
   </div>
   <br>
-  <a href="../index.html">Go back to the home menu</a>
+  <a href="../index.html">Menu</a>
   <br>
 
 
@@ -55,10 +55,15 @@
 
     var op1 = document.querySelector("#op1");
     var op2 = document.querySelector("#op2");
+    var engWord = document.querySelector("#engWord");
+
     var keys = Object.keys(hiragana);
     var values = Object.values(hiragana);
     var op;
-    var engWord = document.querySelector("#engWord");
+
+    var goodOnes = 0;
+    var badOnes = 0;
+
     var answerReal;
     function buttonsValues(v1, v2) {
 
@@ -70,54 +75,67 @@
 
       randomC1 = Math.floor((Math.random() * (keys.length - 1)) + 0);
       randomC2 = Math.floor((Math.random() * (keys.length - 1)) + 0);
+
+      while (randomC1 === randomC2) {
+        randomC2 = Math.floor((Math.random() * (keys.length - 1)) + 0);
+      }
+
       op = Math.floor((Math.random() * 2) + 1);
-      console.log(keys.length + "  R1: " + randomC1 + "  R2: " + randomC2)
+
+
       if (op == 1) { engWord.innerHTML = keys[randomC1]; }
       else if (op == 2) { engWord.innerHTML = keys[randomC2]; }
       buttonsValues(values[randomC1], values[randomC2]);
 
     };
-
     op1.addEventListener("click", function (e) {
 
-      answer(op1.innerHTML);
       if (op == 1) {
-        console.log("you win!");
-        nice.setAttribute("style", "background-color: green;");
-        notNice.setAttribute("style", "background-color: inherit;");
+        // good
+  
 
+        show(true);
       }
       else {
-        console.log("you lose");
-        notNice.setAttribute("style", "background-color: red;");
-        nice.setAttribute("style", "background-color: inherit;");
+        //no good
+        show(false);
       }
-      randomProperty(hiragana);
+      randomProperty();
     });
+
     op2.addEventListener("click", function (e) {
 
-      answer(op2.innerHTML);
       if (op == 2) {
-        console.log("you win!")
-        nice.setAttribute("style", "background-color: green;");
-        notNice.setAttribute("style", "background-color: inherit;");
+        show(true);
       }
       else {
-        console.log("you lose");
+        show(false);
+      }
+      randomProperty();
+    });
 
+    function show(win) {
+      if (win) {
+        nice.setAttribute("style", "background-color: green;");
+        notNice.setAttribute("style", "background-color: darkslategray;");
+
+        goodOnes +=1;
+
+        nice.innerText= "😊 " + goodOnes;
+
+      } else {
         notNice.setAttribute("style", "background-color: red;");
-        nice.setAttribute("style", "background-color: inherit;");
+        nice.setAttribute("style", "background-color: darkslategray;");
+
+        badOnes += 1;
+
+        notNice.innerText = "😢 " + badOnes;
 
       }
-      randomProperty(hiragana);
-    });
-    function answer(guest) {
-      console.log(guest);
+
     }
 
-    randomProperty(hiragana);
-
-
+    randomProperty();
 
   </script>
 
