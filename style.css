@@ -1,10 +1,18 @@
 body{
     background-color: black;
     color: white;
+    font-size: 2em;
   }
  .options{
-   width: 60px;
-   height: 60px;
+   font-size: 2em;
+   background-color: grey;
+   margin: 20px;
+   cursor: pointer;
+   border-style: solid;
+   border-color: rgb(61, 56, 56);
+ }
+ .options:hover{
+   background-color: rgb(92, 83, 83);
  }
  #twoButtons{
    text-align: center;
@@ -21,6 +29,3 @@ body{
  .title{
      text-align: center;
  }
- /* button{
-    width: 2em;
- } */
