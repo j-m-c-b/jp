@@ -74,6 +74,12 @@
 
       randomC1 = Math.floor((Math.random() * (kanjiList.length - 1)) + 0);
       randomC2 = Math.floor((Math.random() * (kanjiList.length - 1)) + 0);
+      
+      while (randomC1 === randomC2) {
+        randomC2 = Math.floor((Math.random() * (keys.length - 1)) + 0);
+      }
+
+      
       op = Math.floor((Math.random() * 2) + 1);
       console.log(kanjiList.length + "  R1: " + randomC1 + "  R2: " + randomC2)
       if (op == 1) { engWord.innerHTML = kanjiList[randomC1].M; }
